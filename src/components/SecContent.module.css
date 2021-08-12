@@ -1,0 +1,71 @@
+.main {
+    display: grid;
+    width: 100%;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-areas: 
+    'as p p'
+    'as b a';
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: max-content max-content;
+    grid-gap: 10px;
+  }
+  .aside1 {
+    width: 100%;
+    grid-area: as;
+  }
+  
+  .info {
+    height: min-content;
+    grid-area: p;
+    /* background-color: darkcyan; */
+    display: flex;
+    flex-direction: column;
+  }
+  .img {
+    height: 300px;
+    margin-bottom: 10px;
+  }
+  .nav {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+  .about {
+    height: 80px;
+  }
+  .info > div {
+    /* margin: 5px; */
+    background-color: rgb(138, 138, 138);
+  }
+  
+  .blogs {
+    grid-area: b;
+  }
+  .aside2 {
+    grid-area: a;
+  }
+  .aside1, .blogs, .aside2 {
+    display: flex;
+    flex-direction: column;
+  }
+  .main-content {
+    display: flex;
+    flex-direction: column;  
+  }
+  
+  .blog, .block {
+    /* height: 200px; */
+    background-color:coral;
+    margin-bottom: 10px;
+  }
+  .block {
+    height: 200px;
+  }
+  .blog {
+    height: 300px;
+  }
+  
+  .img {
+    width: 100%;
+  }

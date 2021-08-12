@@ -1,8 +1,10 @@
+import c from './SecNav.module.css'
+
 const SecNav = () => {
     return (
-        <nav className='secNav'>
-            <div className="sidemenu">=</div>
-            <div className="page-caro">
+        <nav className={c.secNav}>
+            <div className={c.sidemenu}>=</div>
+            <div className={c.pageCaro}>
                 <ul>
                     <li>+</li>
                     <li>+</li>
@@ -12,7 +14,7 @@ const SecNav = () => {
                     <li>+</li>
                 </ul>
             </div>
-            <div className="user-info">Followers: 101</div>
+            <div className={c.userInfo}>Followers: 101</div>
         </nav>
     );
 }

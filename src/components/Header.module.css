@@ -1,0 +1,34 @@
+.header {
+    padding: 10px;
+    /* grid-area: h; */
+    background-color: rgb(114, 163, 156);
+  }
+  .header img {
+    
+    width: 40px;
+    /* z-index: 100; */
+  }
+  
+  .container, .elements, .webElements {
+    display: flex;
+  }
+  
+  .searches form {
+    display: inline-block;
+    /* border-radius: 5px; */
+  }
+  .searches input {
+    padding: 10px 20px 10px 43px;
+    border-style: solid;
+    border-radius: 30px;
+  }
+  
+  .elements {
+    margin-left: 15px;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  
+  .webElements {
+    list-style: none;
+  }

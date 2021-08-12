@@ -1,0 +1,17 @@
+.secNav {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+.pageCaro ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+  }
+  
+.nav {
+    padding: 10px;
+    background-color: rgb(114, 163, 156);
+    text-decoration: none;
+  }
