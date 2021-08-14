@@ -1,19 +1,72 @@
 .secNav {
     height: 60px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 60vw 1fr;
+    grid-template-areas: 
+    'b c i';
+    padding: 0 15px 0 15px;
+    /* justify-content: space-between; */
     border-bottom: #e1e8ed 1px solid;
     margin-bottom: 80px;
   }
 
+.burger {
+  grid-area: b;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+} 
+.burger svg {
+  stroke: #088dcd;
+}
+
+.pageCaro {
+  grid-area: c;
+}
 .pageCaro ul{
     display: flex;
-    justify-content: space-around;
+    height: 100%;
+    /* justify-content: space-around; */
     list-style: none;
+    /* width: 50vw; */
   }
+.pageCaro li {
+  flex-grow: 1;
+  
+  /* height: 100%; */
+}
+.pageCaro a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pageCaro svg {
+  fill: rgba(8, 141, 205, 0.09);
+  stroke: #088dcd;
+}
   
 .nav {
     padding: 10px;
     background-color: #fafafa;
     text-decoration: none;
+  }
+  .userInfo {
+    grid-area: i;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .userInfo > div{
+    display: inline-block;
+  
+  }
+  .userInfo span{
+    /* width: 100%; */
+    padding-left: 1px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3e3f5e;
+    text-align: center;
   }

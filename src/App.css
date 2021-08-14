@@ -9,7 +9,20 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
-
+.appWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.contentWrapper {
+  width: 100%;
+  flex-grow: 1;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  /* min-height: 100vh; */
+  /* padding-bottom: 210px; */
+}
 
 /* .content_wrapper {
   margin-bottom: 10px;

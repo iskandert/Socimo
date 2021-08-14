@@ -1,4 +1,5 @@
 // import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Svg from '../../sprite'
 import c from './Header.module.css'
 
@@ -24,35 +25,35 @@ const Header = () => {
                     </div>
                     <ul className={c.webElements}>
                         <li className={c.userDp}>
-                            <a href="/profile">
+                            <NavLink to="/profile">
                                 <img src="http://wpkixx.com/html/socimo/images/resources/user.jpg" alt="avatar" />
                                 Georg Peter
-                            </a>
+                            </NavLink>
                         </li>
                         <li className={c.home}>
-                            <a href="/newsfeed">
+                            <NavLink to="/newsfeed">
                                 <Svg name="home" />
-                            </a>
+                            </NavLink>
                         </li>
                         <li className={c.messages}>
-                            <a href="/messages">
+                            <NavLink to="/messages">
                                 <Svg name="messages" />
-                            </a>
+                            </NavLink>
                         </li>
                         <li className={c.notifications}>
-                            <a href="/notifications">
+                            <NavLink to="/notifications">
                                 <Svg name="notifications" />
-                            </a>
+                            </NavLink>
                         </li>
                         <li className={c.addNew}>
-                            <a href="#">
+                            <NavLink to="#">
                                 <Svg name="addNew" />
-                            </a>
+                            </NavLink>
                         </li>
                         <li className={c.dropdown}>
-                            <a href="#">
+                            <NavLink to="#">
                                 <Svg name="dropdown" />
-                            </a>
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

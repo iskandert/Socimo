@@ -2,21 +2,16 @@
     display: grid;
     
     grid-template-areas: 
-    'as p p'
-    'as b a';
-    grid-template-columns: 200px 1fr 200px;
-    grid-template-rows: max-content max-content;
+    'm p';
+    grid-template-columns: 1fr 400px;
+    /* grid-template-rows: max-content max-content; */
     grid-column-gap: 20px;
   }
-  .aside1 {
-    width: 100%;
-    grid-area: as;
-  }
   
-  .aside2 {
-    grid-area: a;
+  .aside {
+    grid-area: p;
   }
-  .aside1, .posts, .aside2 {
+  .aside {
     display: flex;
     flex-direction: column;
   }
