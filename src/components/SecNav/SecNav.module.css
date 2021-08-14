@@ -2,6 +2,8 @@
     height: 60px;
     display: flex;
     justify-content: space-between;
+    border-bottom: #e1e8ed 1px solid;
+    margin-bottom: 80px;
   }
 
 .pageCaro ul{
@@ -12,6 +14,6 @@
   
 .nav {
     padding: 10px;
-    background-color: rgb(114, 163, 156);
+    background-color: #fafafa;
     text-decoration: none;
   }

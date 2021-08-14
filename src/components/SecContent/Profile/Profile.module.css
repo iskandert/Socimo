@@ -1,0 +1,23 @@
+
+  .info {
+    height: min-content;
+    grid-area: p;
+    /* background-color: darkcyan; */
+    display: flex;
+    flex-direction: column;
+  }
+  .img {
+    height: 300px;
+    margin-bottom: 10px;
+    background-color: rgb(138, 138, 138);
+  }
+  .nav {
+    height: 80px;
+    margin-bottom: 10px;
+    background-color: rgb(138, 138, 138);
+  }
+  .about {
+    height: 80px;
+  }
+  
+  

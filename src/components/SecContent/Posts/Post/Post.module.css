@@ -1,0 +1,115 @@
+/* .post {
+  height: max-content;
+  padding: 15px 20px 20px 20px;
+  }  */
+.header {
+  display: flex;
+  width: 100%;
+}
+.ava {
+  display: inline-block;
+}
+.ava img {
+  border-radius: 100%;
+  border: #cacaca 1px solid;
+  width: 40px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: 10px;
+}
+.info ins a, .info ins {
+  text-decoration: none;
+}
+.info ins {
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 1px;
+  margin-bottom: 5px;
+}
+.info a {
+  font-weight: 500;
+  font-size: 14px;
+  margin-right: 3px;
+}
+.info span {
+  font-weight: 400;
+  font-size: 12px;
+}
+.more {
+  display: inline-block;
+}
+.footer {
+  border-top: #e1e8ed 1px solid;
+  margin-top: 10px;
+  padding-top: 15px;
+}
+.statistic {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+.indicators {
+  display: flex;
+  
+}
+.indicators > div {
+  margin-right: 30px;
+}
+.indicators span {
+  position: relative;
+}
+.indicators ins {
+  text-decoration: none;
+  font-size: 10px;
+  position: absolute;
+  transform: translateX(3px);
+  /* right: -20px; */
+}
+.reply ins ::after {
+  content: "\f112";
+}
+/* .reply i {
+  font-family: ;
+} */
+.activity {
+  display: flex;
+  justify-content: space-between;
+}
+.bttns {
+  display: flex;
+}
+.activity button {
+  padding: 5px 20px 5px 20px;
+  margin-right: 5px;
+  border: none;
+  background-color: rgb(211, 211, 211);
+  border-radius: 4px;
+}
+.reactions {
+  display: flex;
+  align-items: center;
+}
+.reactions ul{
+  list-style: none;
+  display: flex;
+  
+  /* margin-right: 25px; */
+}
+.reactions ul li {
+  margin-left: 20px;
+  position: relative;
+}
+.reactions ul div {
+  position: absolute;
+  transform: translateY(-50%);
+  /* left: 30px; */
+  right: 5px;
+  width: 25px;
+  height: 25px;
+  background-color: rgb(144, 144, 144);
+  border: #fafafa 2px solid;
+  border-radius: 100%;
+}

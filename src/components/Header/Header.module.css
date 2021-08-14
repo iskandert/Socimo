@@ -1,0 +1,109 @@
+.header {
+    padding: 10px;
+    /* grid-area: h; */
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e1e8ed;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .logo img {
+    width: 40px;
+    height: 30.66px;
+    margin-right: 5px;
+    /* z-index: 100; */
+  }
+  .logo span {
+    font-weight: 700;
+    font-size: 20px;
+    color: #1d3554;
+  }
+  
+  .container, .elements, .webElements {
+    display: flex;
+  }
+  
+  .searches {
+    position: relative;
+  }
+  .searches form {
+    display: inline-block;
+    /* border-radius: 5px; */
+  }
+  .searches input {
+    padding: 10px 20px 10px 43px;
+    border: #e1e8ed 1px solid;
+    border-radius: 30px;
+  }
+  .searches button {
+    position: absolute;
+    border: none;
+    background: none;
+    left: 12px;
+    top: 10px;
+  }
+  .searches button svg {
+    width: 18px;
+    fill: #727272;
+  }
+  
+  .elements {
+    margin-left: 15px;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  
+  .webElements {
+    list-style: none;
+    align-items: center;
+    
+  }
+  .webElements li {
+    height: 38px;
+    border: 1px solid #088dcd;
+    border-radius: 30px;
+  }
+  .webElements li:not(.userDp) {
+    width: 38px;
+    margin-left: 10px;
+    background-color: #deebf3;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .webElements a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .webElements svg {
+    color: #088dcd;
+  }
+  .webElements :not(.userDp) a {
+    width: inherit;
+    height: inherit;
+  }
+  .userDp {
+    
+    background-color: #fff;
+  }
+  .userDp a {
+    padding: 2.5px 10px 4px 4px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    color: black;
+  }
+  .userDp img{
+    width: 30px;
+    border-radius: 100%;
+    margin-right: 3px;
+    /* align-items: center; */
+    /* margin: auto 0 auto 0; */
+  }
