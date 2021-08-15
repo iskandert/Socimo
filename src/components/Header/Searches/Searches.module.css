@@ -1,0 +1,23 @@
+.searches {
+    position: relative;
+  }
+  .searches form {
+    display: inline-block;
+    /* border-radius: 5px; */
+  }
+  .searches input {
+    padding: 10px 20px 10px 43px;
+    border: #e1e8ed 1px solid;
+    border-radius: 30px;
+  }
+  .searches button {
+    position: absolute;
+    border: none;
+    background: none;
+    left: 12px;
+    top: 10px;
+  }
+  .searches button svg {
+    width: 18px;
+    fill: #727272;
+  }

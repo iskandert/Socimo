@@ -1,0 +1,17 @@
+.webElements {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  
+}
+.webElements > div {
+  height: 38px;
+  border: 1px solid #088dcd;
+  border-radius: 30px;
+}
+.webElements a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
