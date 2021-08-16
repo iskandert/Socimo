@@ -8,22 +8,29 @@ import SecNav from './components/SecNav/SecNav';
 import { BrowserRouter, Route } from "react-router-dom";
 import SecNewsfeed from './components/SecNewsfeed/SecNewsfeed';
 
-const App = () => {
+const App = (props) => {
+  const data = props.data;
   return (
     <BrowserRouter>
       <div className='appWrapper'>
-        <Header />
+        <Header data={props.data} />
         {/* <Nav /> */}
-        <SecNav />
+        <SecNav data={props.data} />
         <div className="contentWrapper">
-          <Route path='/profile' component={SecContent} />
-          <Route path='/messages' component={SecMessages} />
-          <Route path='/newsfeed' component={SecNewsfeed} />
+          <Route
+            path='/profile'
+            render={() => <SecContent data={props.data} />} />
+          <Route
+            path='/messages'
+            render={() => <SecMessages data={props.data} />} />
+          <Route
+            path='/newsfeed'
+            render={() => <SecNewsfeed data={props.data} />} />
           {/* <SecNewsfeed /> */}
           {/* <SecContent /> */}
           {/* <SecMessages /> */}
         </div>
-        <Footer />
+        <Footer data={props.data} />
       </div>
     </BrowserRouter>);
 }

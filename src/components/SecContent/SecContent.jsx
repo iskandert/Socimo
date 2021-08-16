@@ -4,7 +4,7 @@ import Posts from './Posts/Posts';
 import Profile from './Profile/Profile';
 import c from './SecContent.module.css';
 
-const SecContent = () => {
+const SecContent = (props) => {
     return (
         <main className={c.main}>
             <div className={c.aside1}>
@@ -13,8 +13,8 @@ const SecContent = () => {
                 <Block />
                 <Block />
             </div>
-            <Profile />
-            <Posts />
+            <Profile data={props.data} />
+            <Posts data={props.data.postData} />
             <div className={c.aside2}>
                 <Block />
                 <Block />
