@@ -1,0 +1,34 @@
+.frase {
+  display: flex;
+  margin-bottom: 20px;
+}
+.my {
+  flex-direction: row-reverse;
+}
+.my .textBlock {
+  margin-right: 10px;
+  background-color: rgba(39, 170, 225, 0.1);
+}
+.notMy .textBlock {
+  margin-left: 10px;
+}
+
+.ava img {
+  border-radius: 100%;
+  border: #088dcd 1px solid;
+  padding: 2px;
+  width: 32px;
+}
+.textBlock {
+  background-color: #fff;
+  color: #434343;
+  display: inline-flex;
+  font-size: 14px;
+  /* line-height: initial; */
+  padding: 5px 8px;
+  max-width: 55%;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+  align-items: center;
+  height: max-content;
+}

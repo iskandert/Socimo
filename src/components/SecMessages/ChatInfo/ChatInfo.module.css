@@ -1,0 +1,82 @@
+.chatInfo > span > a:first-child {
+  text-decoration: none;
+  color: inherit;
+}
+.infoHeader {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 6px 6px 0 0;
+  border: 1px solid #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.infoHeader span {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3e3f5e;
+}
+.infoHeader span:last-child {
+  font-size: 11px;
+  color: #7d7e9e;
+  line-height: 24px;
+  font-weight: 300;
+}
+.infoHeader button {
+  border: none;
+  background: none;
+  margin-left: 15px;
+  cursor: pointer;
+}
+.infoHeader svg {
+  width: 24px;
+  fill: rgba(8, 141, 205, 0.09);
+  stroke: #088dcd;
+}
+.infoAvatar {
+  width: 100%;
+}
+.infoAvatar img {
+  width: 100%;
+}
+.infoData {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: 1fr 1fr;
+  row-gap: 18px;
+  margin: 26px 0 20px;
+}
+.infoData span:nth-child(odd) {
+  font-size: 13px;
+  font-weight: 500;
+  color: #3e3f5e;
+}
+.infoData span:nth-child(even) {
+  font-size: 12px;
+  font-weight: 300;
+  color: #7d7e9e;
+  text-align: right;
+}
+.chatInfo > div:last-child {
+  display: flex;
+  justify-content: center;
+}
+.chatInfo > div:last-child a {
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 40px;
+  /* background-color: blue; */
+  color: #fff;
+  padding: 8px 18px;
+  margin: 0 2px;
+  font-size: 13.5px;
+  font-weight: 400;
+}
+.chatInfo > div:last-child a:first-child {
+  background-color: #088dcd;
+}
+.chatInfo > div:last-child a:last-child {
+  background-color: #ff5630;
+}

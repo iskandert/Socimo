@@ -1,10 +1,10 @@
 import React from 'react';
-import NewPost from './NewPost/NewPost';
-import Post from './Post/Post';
+import NewPost from '../../Widjets/NewPost/NewPost';
+import Post from '../../Widjets/Post/Post';
 import c from './Posts.module.css';
 
 const Posts = (props) => {
-    let postElements = props.data.map(item => <Post
+    let postElements = props.state.map(item => <Post
         name={item.name}
         action={item.action}
         date={item.date}

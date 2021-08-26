@@ -1,8 +1,10 @@
 import FollInfo from './FollInfo/FollInfo';
 import NavButton from './NavButton/NavButton';
 import c from './SecNav.module.css'
+console.log(111);
 
-const SecNav = () => {
+const SecNav = (props) => {
+    const state = props.state;
     return (
         <nav className={c.secNav}>
             <NavButton name="burger" />
@@ -14,7 +16,8 @@ const SecNav = () => {
                 <NavButton name="blog" />
                 <NavButton name="groups" />
             </div>
-            <FollInfo rate='4' count='101' />
+
+            <FollInfo state={state.follInfo} />
         </nav>
     );
 }

@@ -1,0 +1,58 @@
+.create {
+  width: 100%;
+  padding: 10px 20px 10px 50px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  background-color: #fff;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 300;
+  color: rgb(148, 148, 148);
+  position: relative;
+  cursor: text;
+}
+.create svg {
+  position: absolute;
+  width: 20px;
+  left: 15px;
+  top: 8px;
+  fill: rgb(148, 148, 148);
+}
+.buttons {
+  display: flex;
+  margin-top: 20px;
+  /* align-self: flex-end; */
+  /* width: 85%; */
+}
+.buttons svg {
+  height: 20px;
+  width: 20px;
+  margin-right: 5px;
+}
+.buttons .capture svg{
+  fill: rgb(57, 153, 57);
+}
+.buttons .smile svg{
+  fill: rgb(230, 171, 11);
+}
+.buttons .liveStream svg{
+  fill: rgb(172, 44, 65);
+}
+.buttons span {
+  font-size: 12px;
+  font-weight: 500;
+}
+.buttons > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 5px; */
+  /* flex-grow: 1; */
+  background-color: rgb(211, 211, 211);
+  /* opacity: 0; */
+  border-radius: 30px;
+  padding: 6px 20px 6px 20px;
+}
+.buttons > div:nth-child(-n+2) {
+  margin-right: 5px;
+}

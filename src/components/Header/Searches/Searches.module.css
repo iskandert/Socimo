@@ -3,9 +3,11 @@
   }
   .searches form {
     display: inline-block;
+    outline: none;
     /* border-radius: 5px; */
   }
   .searches input {
+    outline: none;
     padding: 10px 20px 10px 43px;
     border: #e1e8ed 1px solid;
     border-radius: 30px;

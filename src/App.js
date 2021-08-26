@@ -9,28 +9,31 @@ import { BrowserRouter, Route } from "react-router-dom";
 import SecNewsfeed from './components/SecNewsfeed/SecNewsfeed';
 
 const App = (props) => {
-  const data = props.data;
+  const state = props.state;
   return (
     <BrowserRouter>
-      <div className='appWrapper'>
-        <Header data={props.data} />
+      <div className='appWrapper' >
+        <Header state={state.headerPart} />
         {/* <Nav /> */}
-        <SecNav data={props.data} />
+        <SecNav state={state.secNavPart} />
         <div className="contentWrapper">
           <Route
             path='/profile'
-            render={() => <SecContent data={props.data} />} />
+            render={() => <SecContent state={state.profilePage} />} />
           <Route
             path='/messages'
-            render={() => <SecMessages data={props.data} />} />
+            render={() => <SecMessages
+              state={state.messagesPage}
+              addFrase={props.addFrase} />} />
           <Route
             path='/newsfeed'
-            render={() => <SecNewsfeed data={props.data} />} />
+            render={() => <SecNewsfeed state={state.newsfeedPage} />} />
           {/* <SecNewsfeed /> */}
           {/* <SecContent /> */}
           {/* <SecMessages /> */}
         </div>
-        <Footer data={props.data} />
+        <Footer state={state.footerPart} />
+        {/* {window.addEventListener('scroll', setClass)} */}
       </div>
     </BrowserRouter>);
 }

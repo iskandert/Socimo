@@ -1,5 +1,5 @@
 import c from './Post.module.css';
-import c1 from '../../SecContent.module.css';
+import c1 from '../Widjet.module.css';
 
 const Post = (props) => {
     return (

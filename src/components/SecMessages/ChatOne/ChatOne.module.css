@@ -1,0 +1,112 @@
+.header > span {
+  display: block;
+  width: 100%;
+  padding: 4px 0;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px dotted #dedede;
+  color: #f0506e;
+  font-size: 11.5px;
+}
+.nav {
+  display: flex;
+  width: 100%;
+  
+  padding: 10px 20px;
+  background-color: #efefef;
+  align-items: center;
+  justify-content: space-between;
+}
+.status {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 13px;
+}
+.status div {
+  margin-right: 10px;
+}
+.options svg {
+  width: 20px;
+  fill: #088dcd;
+}
+.chatBody {
+  padding: 40px 15px 10px 0;
+  overflow-y: auto;
+  max-height: 35vh;
+}
+.footer {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.addFiles {
+  width: 36px;
+  height: 36px;
+  border-radius: 100%;
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 18px;
+  color: #3e3f5e;
+  margin-right: 4px;
+  cursor: pointer;
+}
+.smiles {
+  position: absolute;
+  border-radius: 100%;
+  border: none;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 50px;
+  background: none;
+  cursor: pointer;
+}
+.smiles svg {
+  width: 22px;
+  fill: #ffd300;
+}
+.footer form {
+  display: block;
+  width: 100%;
+}
+.footer input {
+  /* display: block; */
+  width: 100%;
+  border: 1px solid #eaeaea;
+  border-radius: 50px;
+  /* box-sizing: content-box; */
+  color: #7f7f7f;
+  display: inline-block;
+  line-height: 50px;
+  overflow: hidden;
+  outline: none;
+  padding-left: 46px;
+  padding-right: 50px;
+  resize: none;
+}
+.send {
+  position: absolute;
+  right: 0px;
+  background-color: #088dcd;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: none;
+  cursor: pointer;
+}
+.send svg {
+  display: inline-block;
+  /* margin: 0 auto; */
+  width: 18px;
+  height: 18px;
+  fill: #fff;
+  margin-top: 3px;
+  margin-right: 4px;
+}

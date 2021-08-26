@@ -1,6 +1,6 @@
 // import React from 'react';
 // import Block from './Block/Block';
-import Block from '../SecContent/Block/Block';
+import Block from '../Widjets/Block/Block';
 // import Posts from './Posts/Posts';
 // import Profile from './Profile/Profile';
 import c from './SecNewsfeed.module.css';
