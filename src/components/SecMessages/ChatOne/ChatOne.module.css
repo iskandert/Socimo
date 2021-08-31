@@ -23,8 +23,16 @@
   font-weight: 500;
   font-size: 13px;
 }
-.status div {
+.status > div {
   margin-right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+.status span {
+  color: #3e3f5e;
+  font-weight: 500;
+  text-transform: capitalize;
 }
 .options svg {
   width: 20px;

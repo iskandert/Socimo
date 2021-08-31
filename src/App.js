@@ -10,29 +10,44 @@ import SecNewsfeed from './components/SecNewsfeed/SecNewsfeed';
 
 const App = (props) => {
   const state = props.state;
+  const dispatch = props.dispatch;
   return (
     <BrowserRouter>
       <div className='appWrapper' >
-        <Header state={state.headerPart} />
+        <Header
+          state={state.headerPart}
+          dispatch={dispatch} />
         {/* <Nav /> */}
-        <SecNav state={state.secNavPart} />
+        <SecNav
+          state={state.secNavPart}
+          dispatch={dispatch} />
         <div className="contentWrapper">
           <Route
             path='/profile'
-            render={() => <SecContent state={state.profilePage} />} />
+            render={() => <SecContent
+              state={state.profilePage}
+              dispatch={dispatch}
+            />} />
           <Route
             path='/messages'
             render={() => <SecMessages
               state={state.messagesPage}
-              addFrase={props.addFrase} />} />
+              dispatch={dispatch}
+              addFrase={props.store}
+            />} />
           <Route
             path='/newsfeed'
-            render={() => <SecNewsfeed state={state.newsfeedPage} />} />
+            render={() => <SecNewsfeed
+              state={state.newsfeedPage}
+              dispatch={dispatch}
+            />} />
           {/* <SecNewsfeed /> */}
           {/* <SecContent /> */}
           {/* <SecMessages /> */}
         </div>
-        <Footer state={state.footerPart} />
+        <Footer
+          state={state.footerPart}
+          dispatch={dispatch} />
         {/* {window.addEventListener('scroll', setClass)} */}
       </div>
     </BrowserRouter>);

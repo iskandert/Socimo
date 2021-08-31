@@ -9,9 +9,12 @@ import c from './SecMessages.module.css';
 const SecMessages = (props) => {
     // debugger;
     const state = props.state;
+    const dispatch = props.dispatch;
     let friendsElements = state.friends.map(item => {
         return (
-            <ChatRef state={item} />
+            <ChatRef
+                state={item}
+                dispatch={dispatch} />
         );
     });
     let chatElement = state.friends.map(item => {
@@ -20,6 +23,7 @@ const SecMessages = (props) => {
                 path={'/messages/' + item.id}
                 render={() => <ChatOne
                     state={state}
+                    dispatch={dispatch}
                     messages={state.messages[item.id - 1]}
                     friends={state.friends[item.id - 1]}
                     addFrase={props.addFrase}
@@ -32,7 +36,7 @@ const SecMessages = (props) => {
                 path={'/messages/' + item.id}
                 render={() => <ChatInfo
                     state={state.friends[item.id - 1]}
-                />} />
+                    dispatch={dispatch} />} />
         );
     });
 

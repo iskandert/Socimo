@@ -20,7 +20,7 @@
 .chatRef > a > div:first-child {
   position: absolute;
   margin-right: 30px;
-  z-index: 999;
+  z-index: 990;
 }
 .chatRef img {
   width: 40px;

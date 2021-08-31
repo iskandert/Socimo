@@ -4,8 +4,11 @@ import c1 from '../SecContent.module.css';
 const Profile = () => {
     return (
         <div className={c.info}>
-            <div className={c.img}>
-                <div className={c.avatar}></div>
+            <div className={c.banner}>
+                <img src="https://wpkixx.com/html/socimo/images/resources/profile-banner.jpg" alt="background" />
+                <div className={c.avatar}>
+                    <img src="https://wpkixx.com/html/socimo/images/resources/user.jpg" alt="avatar" />
+                </div>
             </div>
             <div className={c.nav}>
                 Tolstikh Alexander
