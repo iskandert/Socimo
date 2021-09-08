@@ -31,3 +31,9 @@
   font-weight: 500;
   color: #3e3f5e;
 }
+.more svg {
+  fill: #088dcd;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}

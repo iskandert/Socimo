@@ -8,11 +8,19 @@
 }
 .ava {
   display: inline-block;
+  /* background-color: #a8a8a8;
+  background-color: #088dcd; */
+  background-color: #fff;
+  border: #a8a8a8 1px solid;
+  border-radius: 100%;
+  width: 40px;
 }
 .ava img {
+  /* border: #a8a8a8 1px solid;
+  border: #088dcd 1px solid; */
+  border: #fff 1px solid;
   border-radius: 100%;
-  border: #cacaca 1px solid;
-  width: 40px;
+  width: 100%;
 }
 .info {
   display: flex;
@@ -39,12 +47,19 @@
   font-weight: 400;
   font-size: 12px;
 }
+.info svg {
+  width: 10px;
+  height: 10px;
+  fill: #3e3f5e;
+  margin-right: 2px;
+  /* color: #3e3f5e; */
+}
 .more {
   display: inline-block;
 }
 .footer {
   border-top: #e1e8ed 1px solid;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   padding-top: 15px;
 }
 .statistic {
@@ -57,20 +72,57 @@
   
 }
 .indicators > div {
-  margin-right: 30px;
-}
-.indicators span {
+  margin-right: 35px;
+  /* height: 30px; */
+  padding-top: 7px;
+  /* padding-right: ; */
+  display: inline-block;
   position: relative;
+  /* display: flex; */
+  /* align-items: flex-end; */
+}
+.indicators svg {
+  /* display: inline-block; */
+  width: 16px;
+  height: 16px;
+  fill: rgba(8, 141, 205, 0.09);
+  stroke: #088dcd;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* vertical-align: middle; */
 }
 .indicators ins {
+  /* margin-left: 3px; */
   text-decoration: none;
   font-size: 10px;
+  /* align-self: flex-start; */
   position: absolute;
-  transform: translateX(3px);
-  /* right: -20px; */
+  top: 0;
+  left: 20px;
+  /* transform: translateX(3px); */
+  /* right: 0px; */
 }
-.reply ins ::after {
+/* .reply ins ::after {
   content: "\f112";
+} */
+.reply {
+  display: flex;
+  align-items: center;
+  fill: #3e3f5e;
+  cursor: pointer;
+}
+.reply svg {
+  width: 12px;
+  height: 12px;
+  /* fill: inherit; */
+}
+.reply span {
+  margin-right: 4px;
+}
+.reply:hover {
+  fill: #088dcd;
+  color: #088dcd;
 }
 /* .reply i {
   font-family: ;
@@ -82,35 +134,69 @@
 .bttns {
   display: flex;
 }
-.activity button {
-  padding: 5px 20px 5px 20px;
+.bttns button {
+  cursor: pointer;
+  padding: 5px 20px 6px 20px;
   margin-right: 5px;
   border: none;
-  background-color: rgb(211, 211, 211);
+  display: flex;
+  align-items: center;
+  /* background-color: rgb(211, 211, 211); */
   border-radius: 4px;
+  color: #7d7f9a;
+  background-color: #e5e4e9;
+  /* vertical-align: middle; */
+}
+.bttns button:hover {
+  background-color: #d5d3dd;
+}
+.bttns span {
+  display: inline-block;
+  /* line-height: 16px; */
+  margin-left: 6px;
+}
+.bttns svg {
+  width: 16px;
+  height: 16px;
+  fill: #7d7f9a;
 }
 .reactions {
   display: flex;
   align-items: center;
 }
-.reactions ul{
+.reactions > ul{
   list-style: none;
   display: flex;
   
   /* margin-right: 25px; */
 }
-.reactions ul li {
+.reactions > ul li {
   margin-left: 20px;
   position: relative;
 }
-.reactions ul div {
+.reactions > ul div {
   position: absolute;
   transform: translateY(-50%);
   /* left: 30px; */
   right: 5px;
   width: 25px;
   height: 25px;
-  background-color: rgb(144, 144, 144);
-  border: #fafafa 2px solid;
+  /* background-color: rgb(144, 144, 144); */
+  background-color: #fafafa;
+  /* border: #fafafa 2px solid; */
+  padding: 1.5px;
   border-radius: 100%;
+  cursor: pointer;
+}
+.reactions > ul div img {
+  width: 100%;
+}
+.reactions span {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 300;
+  /* margin-bottom: 0; */
+  /* vertical-align: sub; */
+  color: #3e3f5e;
 }

@@ -4,10 +4,31 @@
   grid-template-areas: 
   'as p p'
   'as b a';
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 250px 1fr 250px;
+  /* grid-template-columns: .9fr 2fr .9fr; */
   grid-template-rows: max-content max-content;
   grid-column-gap: 20px;
 }
+@media (max-width: 1080px) {
+  .main {
+    grid-template-areas: 
+    'p p'
+    'b a'
+    'b as';
+    grid-template-columns: 1fr 250px;
+    grid-template-rows: max-content max-content max-content;
+  }
+}
+@media (max-width: 780px) {
+  .main {
+    grid-template-areas: 
+    'p p'
+    'b b'
+    'a as';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content max-content max-content;
+  }
+} 
 .aside1 {
   width: 100%;
   grid-area: as;

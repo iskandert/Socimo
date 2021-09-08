@@ -16,7 +16,7 @@ const SecContent = (props) => {
                 <Block />
             </div>
             <Profile state={state} />
-            <Posts state={state.postData} />
+            <Posts state={state} />
             <div className={c.aside2}>
                 <Block />
                 <Block />

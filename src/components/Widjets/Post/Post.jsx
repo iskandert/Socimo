@@ -1,12 +1,49 @@
 import c from './Post.module.css';
 import c1 from '../Widjet.module.css';
+import Svg from '../../../sprite';
+import PostContent from './PostContent/PostContent';
+
+const StatisticIcon = (props) => {
+    let className, name;
+    let num = props.num;
+    switch (num) {
+        case 0:
+            className = c.views;
+            name = 'eye';
+            break;
+        case 1:
+            className = c.comments;
+            name = 'messages';
+            break;
+        case 2:
+            className = c.rate;
+            name = 'rate';
+            break;
+        case 3:
+            className = c.share;
+            name = 'share';
+            break;
+    }
+    return (
+        <div className={className}>
+            <Svg name={name} />
+            <ins>{props.statistic}</ins>
+        </div>
+    )
+}
 
 const Post = (props) => {
+    const content = props.content;
+    const statistic = props.statistic.split(', ');
+    const indicators = statistic.map((item, ind) => {
+        return <StatisticIcon statistic={item} num={ind} />;
+    });
+
     return (
         <div className={`${c.post} ${c1.widjet}`}>
             <div className={c.header}>
                 <figure className={c.ava}>
-                    <img src="http://wpkixx.com/html/socimo/images/resources/user4.jpg" alt="avatar" />
+                    <img src={props.avatar} alt="avatar" />
                 </figure>
                 <div className={c.info}>
                     <ins>
@@ -14,67 +51,54 @@ const Post = (props) => {
                         {props.action}
                     </ins>
                     <span>
-                        <i>O </i>
+                        <Svg name='globus' />
                         Published: {props.date}
                     </span>
                 </div>
-                <div className={c.more}><span>...</span></div>
+                <div className={c1.more}>
+                    <Svg name='more' />
+                </div>
             </div>
-            <div className={c.body}></div>
+            <PostContent content={content} />
             <div className={c.footer}>
                 <div className={c.statistic}>
                     <div className={c.indicators}>
-                        <div className={c.views}>
-                            <span>
-                                V
-                                <ins>{props.statistic.split(', ')[0]}</ins>
-                            </span>
-                        </div>
-                        <div className={c.comments}>
-                            <span>
-                                C
-                                <ins>{props.statistic.split(', ')[1]}</ins>
-                            </span>
-                        </div>
-                        <div className={c.rate}>
-                            <span>
-                                R
-                                <ins>{props.statistic.split(', ')[2]}</ins>
-                            </span>
-                        </div>
-                        <div className={c.share}>
-                            <span>
-                                S
-                                <ins>{props.statistic.split(', ')[3]}</ins>
-                            </span>
-                        </div>
+                        {indicators}
                     </div>
                     <div className={c.reply}>
-                        <span>Reply
-                            <ins>
-
-                            </ins>
-                        </span>
+                        <span>Reply</span>
+                        <Svg name='reply' />
                     </div>
                 </div>
                 <div className={c.activity}>
                     <div className={c.bttns}>
-                        <div className={c.button}>
-                            <button>Like</button>
-                        </div>
-                        <div className={c.button}>
-                            <button>Comment</button>
-                        </div>
-                        <div className={c.button}>
-                            <button>Share</button>
-                        </div>
+                        <button>
+                            <Svg name='like' />
+                            <span>Like</span>
+                        </button>
+                        <button>
+                            <Svg name='comment' />
+                            <span>Comment</span>
+                        </button>
+                        <button>
+                            <Svg name='repost' />
+                            <span>Share</span>
+                        </button>
                     </div>
                     <div className={c.reactions}>
                         <ul>
-                            <li><div className={c.L}></div></li>
-                            <li><div className={c.H}></div></li>
-                            <li><div className={c.S}></div></li>
-                            <li><div className={c.C}></div></li>
+                            <li><div className={c.L}>
+                                <img src="https://wpkixx.com/html/socimo/images/smiles/thumb.png" alt="smile" />
+                            </div></li>
+                            <li><div className={c.H}>
+                                <img src="https://wpkixx.com/html/socimo/images/smiles/heart.png" alt="smile" />
+                            </div></li>
+                            <li><div className={c.S}>
+                                <img src="https://wpkixx.com/html/socimo/images/smiles/smile.png" alt="smile" />
+                            </div></li>
+                            <li><div className={c.C}>
+                                <img src="https://wpkixx.com/html/socimo/images/smiles/weep.png" alt="smile" />
+                            </div></li>
                         </ul>
                         <span>10+</span>
                     </div>

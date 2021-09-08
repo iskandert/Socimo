@@ -48,10 +48,14 @@
   justify-content: center;
   /* margin-right: 5px; */
   /* flex-grow: 1; */
-  background-color: rgb(211, 211, 211);
+  /* background-color: rgb(211, 211, 211); */
   /* opacity: 0; */
   border-radius: 30px;
   padding: 6px 20px 6px 20px;
+  cursor: pointer;
+}
+.buttons > div:hover {
+  background-color: rgb(211, 211, 211);
 }
 .buttons > div:nth-child(-n+2) {
   margin-right: 5px;
