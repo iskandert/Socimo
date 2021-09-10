@@ -6,6 +6,7 @@ import c from './SecContent.module.css';
 
 const SecContent = (props) => {
     const state = props.state;
+    const dispatch = props.dispatch;
     return (
         <main className={c.main}>
             <div className={c.aside1}>
@@ -16,7 +17,9 @@ const SecContent = (props) => {
                 <Block />
             </div>
             <Profile state={state} />
-            <Posts state={state} />
+            <Posts
+                state={state}
+                dispatch={dispatch} />
             <div className={c.aside2}>
                 <Block />
                 <Block />

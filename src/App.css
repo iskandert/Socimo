@@ -21,6 +21,9 @@ body {
 img {
   display: block;
 }
+*::placeholder {
+  color: #bbb;  
+}
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {

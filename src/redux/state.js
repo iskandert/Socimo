@@ -4,6 +4,9 @@ import messages from "./messages"
 
 const ADD_FRASE = 'ADD-FRASE';
 const ON_CHANGE_FRASE = 'ON-CHANGE-FRASE';
+const ON_CHANGE_POST_TOPIC = 'ON-CHANGE-POST-TOPIC';
+const ON_CHANGE_POST_TEXT = 'ON-CHANGE-POST-TEXT';
+const ADD_POST = 'ADD-POST';
 // let rerenderEntireTree;
 // export const subscribe = (observer) => {
 //     rerenderEntireTree = observer;
@@ -31,7 +34,7 @@ let store = {
                 {
                     id: 0,
                     name: "Georg Peter",
-                    action: "added image album",
+                    action: "added images",
                     date: "Jul,22 2021",
                     statistic: "1.2k, 54, 5k, 205",
                     content: {
@@ -93,6 +96,8 @@ let store = {
                     }
                 },
             ],
+            newPostText: '',
+            newPostTopic: '',
         },
         messagesPage: {
             friends: friends,
@@ -125,14 +130,63 @@ let store = {
         this._callSubscriber(this._state);
 
     },
+    onChangeFrase(text) {
+        this._state.messagesPage.newFraseText = text;
+        this._callSubscriber(this._state);
+    },
+    addPostToState() {
+        if (this._state.profilePage.newPostText === '' ||
+            this._state.profilePage.newPostTopic === '') return;
+        let date = new Date();
+        // console.log(date);
+        let dateArr = date.toString().split(' ');
+        let newPost = {
+            id: this._state.profilePage.postData.length,
+            name: "Georg Peter",
+            action: "create post",
+            date: `${dateArr[1]},${dateArr[2]} ${dateArr[3]}`,
+            statistic: "0, 0, 0, 0",
+            content: {
+                link: '',
+                captureLink: [],
+                pictures: [],
+                videos: [], //TODO
+                header: this._state.profilePage.newPostTopic,
+                text: this._state.profilePage.newPostText,
+            }
+        };
+        this._state.profilePage.postData.push(newPost);
+        // console.log(this._state.profilePage.postData);
+        this._state.profilePage.newPostText = '';
+        this._state.profilePage.newPostTopic = '';
+        this._callSubscriber(this._state);
+    },
+    onChangePostText(text) {
+        this._state.profilePage.newPostText = text;
+        this._callSubscriber(this._state);
+    },
+    onChangePostTopic(text) {
+        this._state.profilePage.newPostTopic = text;
+        this._callSubscriber(this._state);
+    },
     dispatch(action) {
         switch (action.type) {
             case ADD_FRASE:
                 this.addFraseToState(action.num);
                 break;
             case ON_CHANGE_FRASE:
-                this._state.messagesPage.newFraseText = action.text;
-                this._callSubscriber(this._state);
+                // this._state.messagesPage.newFraseText = action.text;
+                // this._callSubscriber(this._state);
+                this.onChangeFrase(action.text);
+                break;
+            case ADD_POST:
+                this.addPostToState();
+                break;
+            case ON_CHANGE_POST_TOPIC:
+                this.onChangePostTopic(action.text);
+                break;
+            case ON_CHANGE_POST_TEXT:
+                this.onChangePostText(action.text);
                 break;
         }
         // if (action.type === ADD_FRASE) {
@@ -170,7 +224,21 @@ export const onChangeFraseActionCreator = (t) => {
         text: t,
     }
 };
-
+export const addPostActionCreator = () => ({
+    type: ADD_POST,
+});
+export const onChangePostTopicActionCreator = (t) => {
+    return {
+        type: ON_CHANGE_POST_TOPIC,
+        text: t,
+    }
+};
+export const onChangePostTextActionCreator = (t) => {
+    return {
+        type: ON_CHANGE_POST_TEXT,
+        text: t,
+    }
+};
 export const setClassFromScroll = (select, className, h) => {
     return function () {
         let elem = document.querySelectorAll(select)[0];
@@ -181,6 +249,12 @@ export const setClassFromScroll = (select, className, h) => {
         }
     }
 }
-
+export const setClassOnClick = (select, className) => {
+    return function () {
+        let elem = document.querySelectorAll(select)[0];
+        elem.classList.toggle(className);
+        // console.log(elem.classList);
+    }
+}
 window.store = store;
 export default store;

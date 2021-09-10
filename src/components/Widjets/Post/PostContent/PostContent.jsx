@@ -35,62 +35,25 @@ const PostContent = (props) => {
                     </div>
                 )
             } else {
-                // const captures = data.slice(0, 6).map((item) => {
-                //     return (
-                //         <div className={c.imgCont}>
-                //             <img src={item} alt={className} />
-                //         </div>
-                //     )
-                // })
-                // let fst, snd, count;
-                // console.log(captures);
-                // switch (captures.length) {
-                //     case 2:
-                //         fst = captures[0];
-                //         snd = captures[1];
-                //         count = c.two;
-                //     case 3:
-                //         fst = captures[0];
-                //         snd = [captures[1], captures[2]];
-                //         count = c.three;
-                //     case 4:
-                //         fst = captures[0];
-                //         snd = [captures[1], captures[2], captures[3]];
-                //         count = c.four;
-                //     default:
-                //         fst = [captures[0], captures[1]];
-                //         snd = [captures[2], captures[3], captures[4]];
-                //         count = c.many;
-                // }
-                // return (
-                //     <div className={`${className} ${count}`}>
-                //         {/* <div className={c.square}> */}
-                //         <div className={c.fst}>{fst}</div>
-                //         <div className={c.snd}>{snd}</div>
-                //         {/* </div> */}
-                //         {/* {captures} */}
-                //     </div>
-                // )
                 const lengthImg = data.length;
                 const captures = data.slice(0, 5).map((item, ind) => {
-                    const more = () => {
-                        const n = lengthImg - 5;
-                        if (n > 0 && ind === 4) {
-                            return (
-                                <div>
-                                    <span>{`${lengthImg - 5}+`}</span>
-                                </div>
-                            )
-                        }
-                    };
-
+                    const n = lengthImg - 5;
+                    let more;
+                    if (n > 0 && ind === 4) {
+                        more = (
+                            <div>
+                                <span>{`${lengthImg - 5}+`}</span>
+                            </div>
+                        )
+                    }
                     return (
-                        // <div className={c.imgCont}>
-                        // <img src={item} alt={className} />
-                        // </div>
-                        <div className={c.img} style={{ backgroundImage: `url(${item})` }}>
-                            {more()}
+                        <div className={c.imgCont}>
+                            <img className={c.img} src={item} alt={className} />
+                            {more}
                         </div>
+                        // <div className={c.img} style={{ backgroundImage: `url(${item})` }}>
+                        //     {more}
+                        // </div>
                     )
                 })
                 let count;
@@ -110,18 +73,13 @@ const PostContent = (props) => {
                     default:
                         count = `${c.five} ${c.many}`
                 }
-                console.log(captures);
+                // console.log(captures);
                 return (
                     <div className={`${className} ${count}`}>
-                        {/* <div className={c.square}> */}
-                        {/* <div className={c.fst}>{fst}</div> */}
-                        {/* <div className={c.snd}>{snd}</div> */}
-                        {/* </div> */}
                         {captures}
                     </div>
                 )
             }
-
         }
     }
     return (

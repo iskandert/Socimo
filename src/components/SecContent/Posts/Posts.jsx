@@ -4,7 +4,8 @@ import Post from '../../Widjets/Post/Post';
 import c from './Posts.module.css';
 
 const Posts = (props) => {
-    let postElements = props.state.postData.reverse().map(item => <Post
+    const dispatch = props.dispatch;
+    let postElements = props.state.postData.map(item => <Post
         name={item.name}
         action={item.action}
         date={item.date}
@@ -12,12 +13,14 @@ const Posts = (props) => {
         content={item.content}
         avatar={props.state.profileInfo.avatar}
     />);
-    console.log(props.state.postData.reverse());
-    console.log(props.state.postData);
+    // console.log(props.state.postData.reverse());
+    // console.log(props.state.postData);
     return (
         <div className={c.posts}>
-            <NewPost />
-            {postElements}
+            <NewPost
+                state={props.state}
+                dispatch={dispatch} />
+            {postElements.reverse()}
         </div>
     );
 }

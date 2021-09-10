@@ -37,45 +37,9 @@
   display: block;
   width: 100%;
 }
-
-/* on vh */
-
-
-/* .pictures.two, .pictures.three, .pictures.four, .pictures.many {
-  display: grid;
-  width: 100%;
+.pictures > div {
+  cursor: pointer;
 }
-.imgCont {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-.pictures.many{
-  grid-template-columns: 1.4fr 1fr;
-  gap: 4px;
-}
-.fst, .snd{
-  height: 60vh;
-  display: grid;
-  gap: 4px;
-}
-.many .fst {
-  grid-template-rows: 1fr 1fr;
-}
-.many .snd {
-  grid-template-rows: 1fr 1fr 1fr;
-}
-.many .fst img, .many .snd img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-} */
-
-
-/* on vh, v.2 */
-
-
 .pictures.two, .pictures.three, .pictures.four, .pictures.five {
   display: grid;
   width: 100%;
@@ -117,39 +81,40 @@
   'i1 i3'
   'i1 i4';
 }
-.five .img:first-child, 
-.two .img:first-child, 
-.three .img:first-child, 
-.four .img:first-child {
+.five .imgCont:first-child, 
+.two .imgCont:first-child, 
+.three .imgCont:first-child, 
+.four .imgCont:first-child {
   grid-area: i1;
 }
-.five .img:nth-child(2),
-.two .img:nth-child(2),
-.three .img:nth-child(2),
-.four .img:nth-child(2) {
+.five .imgCont:nth-child(2),
+.two .imgCont:nth-child(2),
+.three .imgCont:nth-child(2),
+.four .imgCont:nth-child(2) {
   grid-area: i2;
 }
-.five .img:nth-child(3),
-.three .img:nth-child(3),
-.four .img:nth-child(3) {
+.five .imgCont:nth-child(3),
+.three .imgCont:nth-child(3),
+.four .imgCont:nth-child(3) {
   grid-area: i3;
 }
-.five .img:nth-child(4),
-.four .img:nth-child(4) {
+.five .imgCont:nth-child(4),
+.four .imgCont:nth-child(4) {
   grid-area: i4;
 }
-.five .img:nth-child(5) {
+.five .imgCont:nth-child(5) {
   grid-area: i5;
+}
+.many > .imgCont:last-child {
+  
   position: relative;
 }
-.many .img:last-child {
-  cursor: pointer;
-  position: relative;
-}
-.many .img:last-child div {
+.many > .imgCont:last-child div {
   display: flex;
+  position: absolute;
   justify-content: center;
   align-items: center;
+  top: 0;
   width: 100%;
   height: 100%;
   font-size: 50px;
@@ -163,7 +128,8 @@
   display: block;
   width: 100%;
   height: 100%;
-  background-position: center;
-  background-size: cover;
-  /* object-fit: cover; */
+  object-fit: cover;
 }
+
+
+
