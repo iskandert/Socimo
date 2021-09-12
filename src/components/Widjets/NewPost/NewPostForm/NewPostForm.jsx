@@ -2,36 +2,28 @@ import React from 'react'
 import c from './NewPostForm.module.css';
 import c1 from '../../Widjet.module.css';
 import Svg from '../../../../sprite';
-import { addPostActionCreator, onChangePostTextActionCreator, onChangePostTopicActionCreator, setClassOnClick } from '../../../../redux/state';
-// import Svg from '../../../../sprite';
+import { addPostActionCreator, onChangePostTextActionCreator, onChangePostTopicActionCreator } from '../../../../redux/profileReducer';
+import { setClassOnClick } from '../../../../redux/store';
 
 const NewPostForm = (props) => {
     const state = props.state;
     const dispatch = props.dispatch;
-    let newPostTextElement = React.createRef(), newPostTopicElement = React.createRef();
+    // let newPostTextElement = React.createRef(), newPostTopicElement = React.createRef();
     let setClassToForm = setClassOnClick(`.${c.newPostForm}`, c.hide);
-    let onChangePostTopic = () => {
-        let text = newPostTopicElement.current.value;
+    let onChangePostTopic = (e) => {
+        let text = e.target.value;
+        // let text = newPostTopicElement.current.value;
         dispatch(onChangePostTopicActionCreator(text));
-        // console.log(state.newPostTopic);
     }
-    let onChangePostText = () => {
-        let text = newPostTextElement.current.value;
+    let onChangePostText = (e) => {
+        let text = e.target.value;
+        // let text = newPostTextElement.current.value;
         dispatch(onChangePostTextActionCreator(text));
-        // console.log(state.newPostText);
     }
     let addPost = () => {
         dispatch(addPostActionCreator());
-        // setClassToForm(`.${c.newPostForm}`, c.hide);
     }
-    // let funks = () => {
-    //     addPost();
-    //     setClassToForm(`.${c.newPostForm}`, c.hide)();
-    // }
-    // let date = new Date();
-    // console.log(date.toString());
     return (
-        // <div className={`${c.wrapper} ${c.hide}`}>
         <div className={`${c.newPostForm} ${c.hide}`}>
             <div className={c.header}>
                 <span>Create New Post</span>
@@ -49,13 +41,13 @@ const NewPostForm = (props) => {
                         className={c.topicOfPost}
                         placeholder='Add Topic...'
                         value={state.newPostTopic}
-                        ref={newPostTopicElement}
+                        // ref={newPostTopicElement}
                         onChange={onChangePostTopic} />
                     <textarea
                         className={c.textOfPost}
                         placeholder="What's On Your Mind?"
                         value={state.newPostText}
-                        ref={newPostTextElement}
+                        // ref={newPostTextElement}
                         onChange={onChangePostText} />
                     <div className={c.options}>
                         <ul>
@@ -68,8 +60,6 @@ const NewPostForm = (props) => {
                         </div>
                     </div>
                     <div
-                        // type='submit'
-                        // onClick={addPost}
                         onClick={() => {
                             addPost();
                             setClassToForm();
@@ -80,7 +70,6 @@ const NewPostForm = (props) => {
                 </form>
             </div>
         </div>
-        // {/* </div> */}
     )
 }
 

@@ -1,16 +1,9 @@
 // import { rerenderEntireTree } from "../render";
 import friends from "./friends";
 import messages from "./messages"
-
-const ADD_FRASE = 'ADD-FRASE';
-const ON_CHANGE_FRASE = 'ON-CHANGE-FRASE';
-const ON_CHANGE_POST_TOPIC = 'ON-CHANGE-POST-TOPIC';
-const ON_CHANGE_POST_TEXT = 'ON-CHANGE-POST-TEXT';
-const ADD_POST = 'ADD-POST';
-// let rerenderEntireTree;
-// export const subscribe = (observer) => {
-//     rerenderEntireTree = observer;
-// }
+import messagesReducer from "./messagesReducer";
+import profileReducer from "./profileReducer";
+import secNavReducer from "./secNavReducer";
 
 let store = {
     _state: {
@@ -117,128 +110,18 @@ let store = {
     wrapper: (f, arg) => {
         return f(arg);
     },
-    addFraseToState(num) {
-        // 'use strict';
-        // let nullSpace = '';
-        if (this._state.messagesPage.newFraseText === '') return;
-        let newFrase = {
-            isMy: true,
-            text: this._state.messagesPage.newFraseText,
-        };
-        this._state.messagesPage.messages[num].messages.push(newFrase);
-        this._state.messagesPage.newFraseText = '';
-        this._callSubscriber(this._state);
-
-    },
-    onChangeFrase(text) {
-        this._state.messagesPage.newFraseText = text;
-        this._callSubscriber(this._state);
-    },
-    addPostToState() {
-        if (this._state.profilePage.newPostText === '' ||
-            this._state.profilePage.newPostTopic === '') return;
-        let date = new Date();
-        // console.log(date);
-        let dateArr = date.toString().split(' ');
-        let newPost = {
-            id: this._state.profilePage.postData.length,
-            name: "Georg Peter",
-            action: "create post",
-            date: `${dateArr[1]},${dateArr[2]} ${dateArr[3]}`,
-            statistic: "0, 0, 0, 0",
-            content: {
-                link: '',
-                captureLink: [],
-                pictures: [],
-                videos: [], //TODO
-                header: this._state.profilePage.newPostTopic,
-                text: this._state.profilePage.newPostText,
-            }
-        };
-        this._state.profilePage.postData.push(newPost);
-        // console.log(this._state.profilePage.postData);
-        this._state.profilePage.newPostText = '';
-        this._state.profilePage.newPostTopic = '';
-        this._callSubscriber(this._state);
-    },
-    onChangePostText(text) {
-        this._state.profilePage.newPostText = text;
-        this._callSubscriber(this._state);
-    },
-    onChangePostTopic(text) {
-        this._state.profilePage.newPostTopic = text;
-        this._callSubscriber(this._state);
-    },
+    // func(f, s, a) {
+    //     s = f(s, a)
+    // },
     dispatch(action) {
-        switch (action.type) {
-            case ADD_FRASE:
-                this.addFraseToState(action.num);
-                break;
-            case ON_CHANGE_FRASE:
-                // this._state.messagesPage.newFraseText = action.text;
-                // this._callSubscriber(this._state);
-                this.onChangeFrase(action.text);
-                break;
-            case ADD_POST:
-                this.addPostToState();
-                break;
-            case ON_CHANGE_POST_TOPIC:
-                this.onChangePostTopic(action.text);
-                break;
-            case ON_CHANGE_POST_TEXT:
-                this.onChangePostText(action.text);
-                break;
-        }
-        // if (action.type === ADD_FRASE) {
-        //     store.addFraseToState(action.num);
-        //     console.log(store._state.messagesPage, 6);
-        // }
-        // if (action.type === ON_CHANGE_FRASE) {
-        //     this._state.messagesPage.newFraseText = action.text;
-        //     // debugger;
-        //     this._callSubscriber(this._state);
-        // }
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+        this._state.secNavPart = secNavReducer(this._state.secNavPart, action);
+
+        this._callSubscriber(this._state);
     }
 }
-// export const addFraseToState = (num) => {
-//     let newFrase = {
-//         isMy: true,
-//         text: store._state.messagesPage.newFraseText,
-//     };
-//     store._state.messagesPage.messages[num].messages.push(newFrase);
-//     // console.log(store._state.messagesPage.newFraseText);
-//     store._state.messagesPage.newFraseText = '';
-//     // debugger;
-//     // console.log(store._state.messagesPage.newFraseText);
-//     store._callSubscriber(store._state);
-// }
-export const addFraseActionCreator = (n) => ({
-    type: ADD_FRASE,
-    // fraseText: text,
-    num: n,
-});
-
-export const onChangeFraseActionCreator = (t) => {
-    return {
-        type: ON_CHANGE_FRASE,
-        text: t,
-    }
-};
-export const addPostActionCreator = () => ({
-    type: ADD_POST,
-});
-export const onChangePostTopicActionCreator = (t) => {
-    return {
-        type: ON_CHANGE_POST_TOPIC,
-        text: t,
-    }
-};
-export const onChangePostTextActionCreator = (t) => {
-    return {
-        type: ON_CHANGE_POST_TEXT,
-        text: t,
-    }
-};
 export const setClassFromScroll = (select, className, h) => {
     return function () {
         let elem = document.querySelectorAll(select)[0];

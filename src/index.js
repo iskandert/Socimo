@@ -1,7 +1,7 @@
 // 'use strict';
 // import { rerenderEntireTree } from './render';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/state';
+import store from './redux/store';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -13,7 +13,6 @@ export let rerenderEntireTree = (state) => {
             <App
                 state={state}
                 dispatch={store.dispatch.bind(store)}
-                store={store.addFraseToState.bind(store)}
             />
         </React.StrictMode>,
         document.getElementById('root')

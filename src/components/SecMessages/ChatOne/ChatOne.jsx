@@ -4,7 +4,7 @@ import Svg from '../../../sprite';
 import ChatFrase from './ChatFrase/ChatFrase';
 import c1 from '../SecMessages.module.css';
 import c from './ChatOne.module.css';
-import { addFraseActionCreator, addFraseToState, onChangeFraseActionCreator } from '../../../redux/state';
+import { addFraseActionCreator, onChangeFraseActionCreator } from '../../../redux/messagesReducer';
 
 const ChatOne = (props) => {
     const state = props.state;
@@ -33,7 +33,7 @@ const ChatOne = (props) => {
             />
         );
     });
-    let newFraseElement = React.createRef();
+    // let newFraseElement = React.createRef();
     let chatBody = React.createRef();
     let scrollChatBody = () => {
         chatBody.current.scrollTop = chatBody.current.scrollHeight;
@@ -69,8 +69,8 @@ const ChatOne = (props) => {
         // setTimeout(scrollChatBody(), 1);
         scrollChatBody();
     }
-    let onChangeFrase = () => {
-        let text = newFraseElement.current.value;
+    let onChangeFrase = (e) => {
+        let text = e.target.value;
         // console.log(text);
         // dispatch({ type: 'ON-CHANGE-FRASE', text: text, });
         dispatch(onChangeFraseActionCreator(text));
@@ -98,7 +98,10 @@ const ChatOne = (props) => {
                 <span>{friends.lastDay}</span>
             </div>
 
-            <div className={c.chatBody} ref={chatBody} >
+            <div
+                className={c.chatBody}
+                ref={chatBody}
+            >
                 {fraseElement}
             </div>
 
@@ -108,7 +111,7 @@ const ChatOne = (props) => {
                     <input
                         type="text"
                         placeholder='say something...'
-                        ref={newFraseElement}
+                        // ref={newFraseElement}
                         onChange={onChangeFrase}
                         value={state.newFraseText}
                     />

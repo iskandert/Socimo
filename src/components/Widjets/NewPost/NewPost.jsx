@@ -6,7 +6,7 @@ import c1 from '../Widjet.module.css';
 import c2 from './NewPostForm/NewPostForm.module.css'
 import Svg from '../../../sprite';
 import NewPostForm from './NewPostForm/NewPostForm';
-import { setClassOnClick } from '../../../redux/state';
+import { setClassOnClick } from '../../../redux/store';
 // import { render } from 'react-dom';
 
 const NewPostButton = (props) => {

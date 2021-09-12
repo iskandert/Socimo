@@ -1,5 +1,5 @@
 import React from 'react';
-import { setClassFromScroll } from '../../redux/state';
+import { setClassFromScroll } from '../../redux/store';
 import Svg from '../../sprite';
 import c from './Footer.module.css';
 
