@@ -11,6 +11,7 @@ import SecNewsfeed from './components/SecNewsfeed/SecNewsfeed';
 const App = (props) => {
   const state = props.state;
   const dispatch = props.dispatch;
+  // debugger;
   return (
     <BrowserRouter>
       <div className='appWrapper' >

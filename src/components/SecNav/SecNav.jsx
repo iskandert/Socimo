@@ -4,6 +4,7 @@ import c from './SecNav.module.css'
 console.log(111);
 
 const SecNav = (props) => {
+    // debugger;
     const state = props.state;
     return (
         <nav className={c.secNav}>
