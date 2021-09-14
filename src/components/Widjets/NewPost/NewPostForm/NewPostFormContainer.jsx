@@ -1,14 +1,10 @@
 import React from 'react'
-import c from './NewPostForm.module.css';
-import c1 from '../../Widjet.module.css';
-import Svg from '../../../../sprite';
 import { addPostActionCreator, onChangePostTextActionCreator, onChangePostTopicActionCreator } from '../../../../redux/profileReducer';
-import { setClassOnClick } from '../../../../redux/store';
-import NewPost from '../NewPost';
+import NewPostForm from './NewPostForm';
 
 const NewPostFormContainer = (props) => {
-    const state = props.state;
-    const dispatch = props.dispatch;
+    const state = props.store.getState();
+    const dispatch = props.store.dispatch;
     let onChangePostTopic = (e) => {
         let text = e.target.value;
         dispatch(onChangePostTopicActionCreator(text));
@@ -21,11 +17,12 @@ const NewPostFormContainer = (props) => {
         dispatch(addPostActionCreator());
     }
     return (
-        <NewPost
+        <NewPostForm
             onChangePostTopic={onChangePostTopic}
             onChangePostText={onChangePostText}
             addPost={addPost}
-            state={state}
+            newPostTopic={state.newPostTopic}
+            newPostText={state.newPostText}
         />
     )
 }

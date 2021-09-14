@@ -4,11 +4,8 @@ import Svg from '../../../sprite';
 import ChatFrase from './ChatFrase/ChatFrase';
 import c1 from '../SecMessages.module.css';
 import c from './ChatOne.module.css';
-import { addFraseActionCreator, onChangeFraseActionCreator } from '../../../redux/messagesReducer';
 
 const ChatOne = (props) => {
-    const state = props.state;
-    const dispatch = props.dispatch;
     // debugger
     let friends = props.friends;
     let messages = props.messages;
@@ -33,53 +30,10 @@ const ChatOne = (props) => {
             />
         );
     });
-    // let newFraseElement = React.createRef();
     let chatBody = React.createRef();
     let scrollChatBody = () => {
         chatBody.current.scrollTop = chatBody.current.scrollHeight;
     }
-    // let addFrase = () => {
-    //     // debugger;
-    //     // let text = newFraseElement.current.value;
-    //     // const action = { type: 'ADD-FRASE', fraseText: text, num: friends.id - 1, };
-    //     // methods.addFrase(text, friends.id - 1);
-    //     // dispatch(action);
-    //     // dispatch(addFraseActionCreator(text, friends.id - 1));
-    //     dispatch(addFraseActionCreator(friends.id - 1));
-    //     // debugger;
-    //     scrollChatBody();
-    // }
-    // let onChangeFrase = () => {
-    //     // debugger;
-    //     let text = newFraseElement.current.value;
-    //     let action = onChangeFraseActionCreator(text);
-    //     // methods.onChangeFrase(text);
-    //     // dispatch(action);
-    //     dispatch(action);
-    // }
-    let addFrase = () => {
-        // console.log(state);
-        // dispatch({ type: 'ADD-FRASE', num: friends.id - 1 });
-        dispatch(addFraseActionCreator(friends.id - 1));
-        // console.log(state);
-
-        // addFraseToState(friends.id - 1);
-        // props.addFrase(friends.id - 1);
-        // console.log(state);
-        // setTimeout(scrollChatBody(), 1);
-        scrollChatBody();
-    }
-    let onChangeFrase = (e) => {
-        let text = e.target.value;
-        // console.log(text);
-        // dispatch({ type: 'ON-CHANGE-FRASE', text: text, });
-        dispatch(onChangeFraseActionCreator(text));
-        // console.log(state);
-    }
-    // React.useEffect(() => {
-    //     scrollChatBody();
-    // }, []);
-    // debugger;
     return (
         <div className={c.chatWrapper}>
 
@@ -100,8 +54,7 @@ const ChatOne = (props) => {
 
             <div
                 className={c.chatBody}
-                ref={chatBody}
-            >
+                ref={chatBody}>
                 {fraseElement}
             </div>
 
@@ -112,8 +65,8 @@ const ChatOne = (props) => {
                         type="text"
                         placeholder='say something...'
                         // ref={newFraseElement}
-                        onChange={onChangeFrase}
-                        value={state.newFraseText}
+                        onChange={props.onChangeFrase}
+                        value={props.newFraseText}
                     />
                 </form>
                 <button className={c.smiles}>
@@ -121,16 +74,17 @@ const ChatOne = (props) => {
                 </button>
                 <button
                     className={c.send}
-                    onClick={addFrase}
-                >
+                    onClick={() => {
+                        props.addFrase();
+                        scrollChatBody();
+                    }}>
                     <Svg name='send' />
                 </button>
             </div>
-            {/* {scrollChatBody()} */}
+
         </div>
 
     )
 }
-
 
 export default ChatOne;

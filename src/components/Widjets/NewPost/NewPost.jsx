@@ -20,8 +20,8 @@ const NewPostButton = (props) => {
 }
 
 const NewPost = (props) => {
-    const state = props.state;
-    const dispatch = props.dispatch;
+    // const state = props.state;
+    // const dispatch = props.dispatch;
     return (
         <div className={c1.widjet}>
             {/* <div className={c1.widjetWrapper}> */}
@@ -40,10 +40,7 @@ const NewPost = (props) => {
 
             </div>
             <NewPostFormContainer
-                state={state}
-                dispatch={dispatch} />
-            {/* </div> */}
-            {/* <NewPostButton /> */}
+                store={props.store} />
         </div>
     );
 }

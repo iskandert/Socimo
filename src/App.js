@@ -11,6 +11,7 @@ import SecNewsfeed from './components/SecNewsfeed/SecNewsfeed';
 const App = (props) => {
   const state = props.state;
   const dispatch = props.dispatch;
+  const store = props.store;
   // debugger;
   return (
     <BrowserRouter>
@@ -28,13 +29,15 @@ const App = (props) => {
             render={() => <SecContent
               state={state.profilePage}
               dispatch={dispatch}
+              store={props.store}
             />} />
           <Route
             path='/messages'
             render={() => <SecMessages
               state={state.messagesPage}
               dispatch={dispatch}
-              addFrase={props.store}
+              store={props.store}
+            // addFrase={props.store}
             />} />
           <Route
             path='/newsfeed'

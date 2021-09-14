@@ -6,23 +6,7 @@ import { addPostActionCreator, onChangePostTextActionCreator, onChangePostTopicA
 import { setClassOnClick } from '../../../../redux/store';
 
 const NewPostForm = (props) => {
-    const state = props.state;
-    const dispatch = props.dispatch;
-    // let newPostTextElement = React.createRef(), newPostTopicElement = React.createRef();
     let setClassToForm = setClassOnClick(`.${c.newPostForm}`, c.hide);
-    let onChangePostTopic = (e) => {
-        let text = e.target.value;
-        // let text = newPostTopicElement.current.value;
-        dispatch(onChangePostTopicActionCreator(text));
-    }
-    let onChangePostText = (e) => {
-        let text = e.target.value;
-        // let text = newPostTextElement.current.value;
-        dispatch(onChangePostTextActionCreator(text));
-    }
-    let addPost = () => {
-        dispatch(addPostActionCreator());
-    }
     return (
         <div className={`${c.newPostForm} ${c.hide}`}>
             <div className={c.header}>
@@ -40,13 +24,13 @@ const NewPostForm = (props) => {
                         type="text"
                         className={c.topicOfPost}
                         placeholder='Add Topic...'
-                        value={state.newPostTopic}
+                        value={props.newPostTopic}
                         // ref={newPostTopicElement}
                         onChange={props.onChangePostTopic} />
                     <textarea
                         className={c.textOfPost}
                         placeholder="What's On Your Mind?"
-                        value={state.newPostText}
+                        value={props.newPostText}
                         // ref={newPostTextElement}
                         onChange={props.onChangePostText} />
                     <div className={c.options}>

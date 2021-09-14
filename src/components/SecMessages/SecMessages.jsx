@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import c1 from '../Widjets/Widjet.module.css';
 import ChatInfo from './ChatInfo/ChatInfo';
 import ChatOne from './ChatOne/ChatOne';
+import ChatOneContainer from './ChatOne/ChatOneContainer';
 import ChatRef from './ChatRef/ChatRef';
 import c from './SecMessages.module.css';
 
@@ -21,13 +22,9 @@ const SecMessages = (props) => {
         return (
             <Route
                 path={'/messages/' + item.id}
-                render={() => <ChatOne
-                    state={state}
-                    dispatch={dispatch}
-                    messages={state.messages[item.id - 1]}
-                    friends={state.friends[item.id - 1]}
-                    addFrase={props.addFrase}
-                    newFraseText={state.newFraseText} />} />
+                render={() => <ChatOneContainer
+                    store={props.store}
+                    item={item} />} />
         );
     });
     let infoElement = state.friends.map(item => {
