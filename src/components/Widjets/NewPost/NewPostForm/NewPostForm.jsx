@@ -42,13 +42,13 @@ const NewPostForm = (props) => {
                         placeholder='Add Topic...'
                         value={state.newPostTopic}
                         // ref={newPostTopicElement}
-                        onChange={onChangePostTopic} />
+                        onChange={props.onChangePostTopic} />
                     <textarea
                         className={c.textOfPost}
                         placeholder="What's On Your Mind?"
                         value={state.newPostText}
                         // ref={newPostTextElement}
-                        onChange={onChangePostText} />
+                        onChange={props.onChangePostText} />
                     <div className={c.options}>
                         <ul>
                             <li className>Activity Feed</li>
@@ -61,7 +61,7 @@ const NewPostForm = (props) => {
                     </div>
                     <div
                         onClick={() => {
-                            addPost();
+                            props.addPost();
                             setClassToForm();
                         }}
                         className={c.publish}>

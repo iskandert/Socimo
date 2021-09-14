@@ -7,6 +7,7 @@ import c2 from './NewPostForm/NewPostForm.module.css'
 import Svg from '../../../sprite';
 import NewPostForm from './NewPostForm/NewPostForm';
 import { setClassOnClick } from '../../../redux/store';
+import NewPostFormContainer from './NewPostForm/NewPostFormContainer';
 // import { render } from 'react-dom';
 
 const NewPostButton = (props) => {
@@ -38,7 +39,7 @@ const NewPost = (props) => {
                 </div>
 
             </div>
-            <NewPostForm
+            <NewPostFormContainer
                 state={state}
                 dispatch={dispatch} />
             {/* </div> */}
