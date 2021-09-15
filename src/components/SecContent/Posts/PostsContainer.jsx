@@ -1,11 +1,16 @@
+import StoreContext from "../../../storeContext";
 import Posts from "./Posts"
 
 const PostsContainer = (props) => {
     return (
-        <Posts
-            store={props.store}
-            state={props.store.getState().profilePage}
-        />
+        <StoreContext.Consumer>
+            {(store) => {
+                return <Posts
+                    store={store}
+                    state={store.getState().profilePage}
+                />
+            }}
+        </StoreContext.Consumer>
     )
 }
 
