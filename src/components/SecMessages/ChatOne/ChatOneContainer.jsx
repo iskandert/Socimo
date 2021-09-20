@@ -1,45 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { addFraseActionCreator, onChangeFraseActionCreator } from '../../../redux/messagesReducer';
-import StoreContext from '../../../storeContext';
 import ChatOne from './ChatOne';
 
-const ChatOneContainer = (props) => {
-    // debugger
-    const item = props.item;
-    // const state = props.store.getState().messagesPage;
-    // const dispatch = props.store.dispatch;
-    // let friends = state.friends;
-    // let messages = state.messages;
-    // let addFrase = () => {
-    //     dispatch(addFraseActionCreator(item.id - 1));
-    // }
-    // let onChangeFrase = (e) => {
-    //     let text = e.target.value;
-    //     dispatch(onChangeFraseActionCreator(text));
-    // }
-    return (
-        <StoreContext.Consumer>
-            {(store) => {
-                const state = store.getState().messagesPage;
-                const dispatch = store.dispatch;
-                let friends = state.friends;
-                let messages = state.messages;
-                let addFrase = () => {
-                    dispatch(addFraseActionCreator(item.id - 1));
-                }
-                let onChangeFrase = (e) => {
-                    let text = e.target.value;
-                    dispatch(onChangeFraseActionCreator(text));
-                }
-                return <ChatOne
-                    messages={messages[item.id - 1]}
-                    friends={friends[item.id - 1]}
-                    newFraseText={state.newFraseText}
-                    addFrase={addFrase}
-                    onChangeFrase={onChangeFrase} />
-            }}
-        </StoreContext.Consumer>
-    )
+let mapStateToProps = (state, props) => {
+    return {
+        messages: state.messagesPage.messages[props.item.id - 1],
+        friends: state.messagesPage.friends[props.item.id - 1],
+        newFraseText: state.messagesPage.newFraseText,
+        // newPostText: state.profilePage.newPostText,
+    }
 }
+
+let mapDispatchToProps = (dispatch, props) => {
+    return {
+        addFrase: () => {
+            dispatch(addFraseActionCreator(props.item.id - 1));
+        },
+        onChangeFrase: (e) => {
+            let text = e.target.value;
+            dispatch(onChangeFraseActionCreator(text));
+        },
+    }
+}
+
+const ChatOneContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps)(ChatOne);
 
 export default ChatOneContainer;

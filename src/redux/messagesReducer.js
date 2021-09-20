@@ -605,16 +605,28 @@ const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_FRASE:
             if (state.newFraseText === '') return state;
-            let newFrase = {
-                isMy: true,
-                text: state.newFraseText,
+            return {
+                ...state,
+                messages: state.messages.map((item, ind) => {
+                    if (ind !== action.num) return item;
+                    else {
+                        item.messages = [
+                            ...state.messages[action.num].messages,
+                            {
+                                isMy: true,
+                                text: state.newFraseText,
+                            },
+                        ];
+                        return item;
+                    }
+                }),
+                newFraseText: '',
             };
-            state.messages[action.num].messages.push(newFrase);
-            state.newFraseText = '';
-            return state;
         case ON_CHANGE_FRASE:
-            state.newFraseText = action.text;
-            return state;
+            return {
+                ...state,
+                newFraseText: action.text,
+            }
         default:
             return state;
     }

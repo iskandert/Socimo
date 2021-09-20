@@ -6,7 +6,7 @@ import c1 from '../Widjet.module.css';
 import c2 from './NewPostForm/NewPostForm.module.css'
 import Svg from '../../../sprite';
 import NewPostForm from './NewPostForm/NewPostForm';
-import { setClassOnClick } from '../../../redux/store';
+import { setClassOnEvent } from '../../../redux/reduxStore';
 import NewPostFormContainer from './NewPostForm/NewPostFormContainer';
 // import { render } from 'react-dom';
 
@@ -28,7 +28,7 @@ const NewPost = (props) => {
             <span className={c1.header}>Create New Post</span>
             <div className={c1.body}>
                 {/* <input className={c.create} type="text" placeholder="Create New Post" /> */}
-                <button onClick={setClassOnClick(`.${c2.newPostForm}`, c2.hide)} className={c.create} type={c.submit}>
+                <button onClick={setClassOnEvent(`.${c2.newPostForm}`, c2.hide)} className={c.create} type={c.submit}>
                     <Svg name='pen' />
                     Create New Post
                 </button>

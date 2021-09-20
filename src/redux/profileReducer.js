@@ -104,33 +104,41 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ON_CHANGE_POST_TOPIC:
-            state.newPostTopic = action.text;
-            return state;
+            return {
+                ...state,
+                newPostTopic: action.text,
+            }
         case ON_CHANGE_POST_TEXT:
-            state.newPostText = action.text;
-            return state;
+            return {
+                ...state,
+                newPostText: action.text,
+            }
         case ADD_POST:
             if (state.newPostText === '' || state.newPostTopic === '') return state;
             let dateArr = new Date().toString().split(' ');
-            let newPost = {
-                id: state.postData.length,
-                name: "Georg Peter",
-                action: "create post",
-                date: `${dateArr[1]},${dateArr[2]} ${dateArr[3]}`,
-                statistic: "0, 0, 0, 0",
-                content: {
-                    link: '',
-                    captureLink: [],
-                    pictures: [],
-                    videos: [], //TODO
-                    header: state.newPostTopic,
-                    text: state.newPostText,
-                }
-            };
-            state.postData.push(newPost);
-            state.newPostText = '';
-            state.newPostTopic = '';
-            return state;
+            return {
+                ...state,
+                postData: [
+                    ...state.postData,
+                    {
+                        id: state.postData.length,
+                        name: "Georg Peter",
+                        action: "create post",
+                        date: `${dateArr[1]},${dateArr[2]} ${dateArr[3]}`,
+                        statistic: "0, 0, 0, 0",
+                        content: {
+                            link: '',
+                            captureLink: [],
+                            pictures: [],
+                            videos: [], //TODO
+                            header: state.newPostTopic,
+                            text: state.newPostText,
+                        }
+                    },
+                ],
+                newPostText: '',
+                newPostTopic: '',
+            }
         default:
             return state;
     }

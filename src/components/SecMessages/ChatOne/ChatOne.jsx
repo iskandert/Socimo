@@ -34,6 +34,7 @@ const ChatOne = (props) => {
     let scrollChatBody = () => {
         chatBody.current.scrollTop = chatBody.current.scrollHeight;
     }
+    // console.log(props.newFraseText);
     return (
         <div className={c.chatWrapper}>
 

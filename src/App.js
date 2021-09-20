@@ -7,6 +7,7 @@ import SecMessages from './components/SecMessages/SecMessages';
 import SecNav from './components/SecNav/SecNav';
 import { BrowserRouter, Route } from "react-router-dom";
 import SecNewsfeed from './components/SecNewsfeed/SecNewsfeed';
+import SecGroups from './components/SecGroups/SecGroups';
 
 const App = (props) => {
   const state = props.state;
@@ -18,26 +19,21 @@ const App = (props) => {
       <div className='appWrapper' >
         <Header
           state={state.headerPart}
-          dispatch={dispatch} />
+        />
         {/* <Nav /> */}
         <SecNav
           state={state.secNavPart}
-          dispatch={dispatch} />
+        />
         <div className="contentWrapper">
           <Route
             path='/profile'
             render={() => <SecContent
               state={state.profilePage}
-              dispatch={dispatch}
-              store={props.store}
             />} />
           <Route
             path='/messages'
             render={() => <SecMessages
               state={state.messagesPage}
-              dispatch={dispatch}
-              store={props.store}
-            // addFrase={props.store}
             />} />
           <Route
             path='/newsfeed'
@@ -45,9 +41,11 @@ const App = (props) => {
               state={state.newsfeedPage}
               dispatch={dispatch}
             />} />
-          {/* <SecNewsfeed /> */}
-          {/* <SecContent /> */}
-          {/* <SecMessages /> */}
+          <Route
+            path='/groups'
+            render={() => <SecGroups
+              state={state.groupsPage}
+            />} />
         </div>
         <Footer
           state={state.footerPart}

@@ -1,9 +1,52 @@
+.newsfeed, .videos, .courses, .books, .blog, .groups, .burger {
+  color: inherit;
+}
+/* .button:hover {
+  border-bottom: #088dcd 3px solid;
+} */
 .button a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  .button svg {
-    stroke: #088dcd;
-  }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: all .3s ease-in-out;
+}
+.button a.active::after, .hovered:not(.burger) a::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 3px;
+  bottom: -1px;
+  background-color: #088dcd;
+}
+.button svg {
+  stroke: #088dcd;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: inherit;
+}
+.hovered svg {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: inherit;
+}
+.button span {
+  opacity: 0;
+  position: absolute;
+  transform: translateY(22px);
+  text-transform: capitalize;
+  color: #3d3d49;
+  font-size: 14px;
+  font-weight: 500;
+  /* line-height: 80px; */
+  /* padding-top: 40px; */
+  transition: inherit;
+  /* pointer-events: none; */
+}
+.hovered span {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: inherit;
+}

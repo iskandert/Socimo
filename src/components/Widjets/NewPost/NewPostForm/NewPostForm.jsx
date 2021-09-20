@@ -2,11 +2,10 @@ import React from 'react'
 import c from './NewPostForm.module.css';
 import c1 from '../../Widjet.module.css';
 import Svg from '../../../../sprite';
-import { addPostActionCreator, onChangePostTextActionCreator, onChangePostTopicActionCreator } from '../../../../redux/profileReducer';
-import { setClassOnClick } from '../../../../redux/store';
+import { setClassOnEvent } from '../../../../redux/reduxStore';
 
 const NewPostForm = (props) => {
-    let setClassToForm = setClassOnClick(`.${c.newPostForm}`, c.hide);
+    let setClassToForm = setClassOnEvent(`.${c.newPostForm}`, c.hide);
     return (
         <div className={`${c.newPostForm} ${c.hide}`}>
             <div className={c.header}>

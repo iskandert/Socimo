@@ -24,3 +24,7 @@ yarn-error.log*
 
 # other
 plan.txt
+/src/redux/store.js
+/src/redux/messages.js
+/src/redux/friends.js
+/src/storeContext.js

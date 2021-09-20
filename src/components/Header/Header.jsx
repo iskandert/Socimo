@@ -1,5 +1,5 @@
 import React from 'react';
-import { setClassFromScroll } from '../../redux/store';
+import { setClassFromScroll } from '../../redux/reduxStore';
 import c from './Header.module.css'
 import Logo from './Logo/Logo';
 import Searches from './Searches/Searches';

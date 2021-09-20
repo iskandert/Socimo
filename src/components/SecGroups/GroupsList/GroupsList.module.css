@@ -1,0 +1,11 @@
+.groupsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

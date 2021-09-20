@@ -1,0 +1,76 @@
+.pagination {
+    margin: 30px 0 24px;
+
+    list-style: none;
+    display: flex;
+}
+.pagination li {
+    margin: 0 3.5px;
+}
+.pagination li:not(.dots) {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    transform: scale(1);
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    font-weight: 500;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 35px;
+}
+.pagination li:not(.dots, .showMore, .showLess) {
+    width: 35px;
+    justify-content: center;
+    /* border-radius: 100%; */
+}
+.showMore, .showLess {
+    padding: 0 12px;
+    /* transform: scale(1); */
+}
+.pagination .showMore:hover, .pagination .showLess:hover {
+    transform: scale(1.03);
+}
+.showMore span {
+    margin-right: 6px;
+}
+.showLess span {
+    margin-left: 6px;
+}
+.showMore svg {
+    transform: rotate(180deg);
+}
+.numbers, .arrows, .showMore, .showLess {
+    background-color: #deebf3;
+    color: #088dcd;
+    border-color: #c9d6de;
+}
+/* .pagination li {} */
+/* .pagination li.numbers {} */
+.pagination li:not(.dots, .showMore, .showLess):hover {
+    transform: scale(1.1);
+}
+.activePage, .arrows:hover, .showMore:hover, .showLess:hover {
+/* .numbers { */
+    background-color: rgba(8, 141, 205, 0.6);
+    border-color: #088dcd;
+    color: #fff;
+}
+.arrows:hover svg, .showMore:hover svg, .showLess:hover svg {
+    fill: #fff;
+}
+.dots {
+    padding-top: 10px;
+}
+.pagination svg {
+    width: 11px;
+    height: 11px;
+    fill: #088dcd;
+    transition: inherit;
+}
+.arrows svg {
+    transform: rotate(90deg);
+}
+.arrows:first-child svg {
+    transform: rotate(-90deg);
+}

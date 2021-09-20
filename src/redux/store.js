@@ -122,22 +122,22 @@ let store = {
         this._callSubscriber(this._state);
     }
 }
-export const setClassFromScroll = (select, className, h) => {
-    return function () {
-        let elem = document.querySelectorAll(select)[0];
-        let top = document.querySelectorAll('.appWrapper')[0].getBoundingClientRect().top;
-        let isContein = elem.classList.contains(className);
-        if ((top < -h && !isContein) || (top >= -h && isContein)) {
-            elem.classList.toggle(className);
-        }
-    }
-}
-export const setClassOnClick = (select, className) => {
-    return function () {
-        let elem = document.querySelectorAll(select)[0];
-        elem.classList.toggle(className);
-        // console.log(elem.classList);
-    }
-}
+// export const setClassFromScroll = (select, className, h) => {
+//     return function () {
+//         let elem = document.querySelectorAll(select)[0];
+//         let top = document.querySelectorAll('.appWrapper')[0].getBoundingClientRect().top;
+//         let isContein = elem.classList.contains(className);
+//         if ((top < -h && !isContein) || (top >= -h && isContein)) {
+//             elem.classList.toggle(className);
+//         }
+//     }
+// }
+// export const setClassOnClick = (select, className) => {
+//     return function () {
+//         let elem = document.querySelectorAll(select)[0];
+//         elem.classList.toggle(className);
+//         // console.log(elem.classList);
+//     }
+// }
 window.store = store;
 export default store;

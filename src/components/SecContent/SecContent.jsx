@@ -11,7 +11,6 @@ const SecContent = (props) => {
     return (
         <main className={c.main}>
             <div className={c.aside1}>
-
                 <Block />
                 <Block />
                 <Block />

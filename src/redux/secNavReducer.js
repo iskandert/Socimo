@@ -8,7 +8,9 @@ const secNavReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case '':
-            return state;
+            return {
+                ...state,
+            };
         default:
             return state;
     }
