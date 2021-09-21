@@ -6,7 +6,8 @@ let mapStateToProps = (state, props) => {
     // console.log(state.groupsPage.interval);
     return {
         groupsData: [...state.groupsPage.groupsData],
-        interval: [...state.groupsPage.interval],
+        // interval: [...state.groupsPage.interval],
+        interval: [...state.groupsPage.intervalActive],
     }
 }
 

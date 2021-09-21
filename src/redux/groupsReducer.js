@@ -1367,7 +1367,9 @@ let initialState = {
         },
     ],
     interval: [0, 15],
+    intervalActive: [0, 15],
     elementsOnPage: 15,
+    elementsOnPageActive: 15,
 }
 
 const groupsReducer = (state = initialState, action) => {
@@ -1382,36 +1384,66 @@ const groupsReducer = (state = initialState, action) => {
                 }),
             }
         case ON_CHANGE_PAGE:
-            return {
-                ...state,
-                interval: action.interval.map(num => num * state.elementsOnPage),
-                // interval: [action.],
+            if (action.interval[0]
+                < state.intervalActive[0] / state.elementsOnPage) {
+                return {
+                    ...state,
+                    intervalActive: action.interval.map(num => num * state.elementsOnPage),
+                    elementsOnPageActive: state.elementsOnPage,
+                }
+            }
+            if (action.interval[0]
+                > state.intervalActive[0] / state.elementsOnPage) {
+                return {
+                    ...state,
+                    intervalActive: action.interval.map(num => {
+                        return (num - 1) * state.elementsOnPage + state.elementsOnPageActive;
+                    }),
+                    elementsOnPageActive: state.elementsOnPage,
+                }
             }
         case ON_SHIFT_PAGE:
             if (action.direction === 0
-                && state.interval[0] > 0) return {
+                && state.intervalActive[0] > 0) return {
                     ...state,
-                    interval: [...state.interval.map(num => num - state.elementsOnPage)],
+                    intervalActive: [
+                        state.intervalActive[0] - state.elementsOnPage,
+                        state.intervalActive[0]
+                    ],
+                    elementsOnPageActive: state.elementsOnPage,
                 };
             if (action.direction === 1
-                && state.interval[1] < state.groupsData.length) return {
+                && state.intervalActive[1] < state.groupsData.length) return {
                     ...state,
-                    interval: [...state.interval.map(num => num + state.elementsOnPage)],
+                    intervalActive: [
+                        state.intervalActive[1],
+                        state.intervalActive[1] + state.elementsOnPage
+                    ],
+                    elementsOnPageActive: state.elementsOnPage,
                 };
             return state;
         case SHOW_MORE:
-            if (state.interval[1] < state.groupsData.length) return {
+            if (state.intervalActive[1] < state.groupsData.length) return {
                 ...state,
-                elementsOnPage: state.elementsOnPage + 15,
-                // interval: ,
+                intervalActive: [
+                    state.intervalActive[0],
+                    state.intervalActive[1] + state.elementsOnPage
+                ],
+                elementsOnPageActive:
+                    state.elementsOnPageActive + state.elementsOnPage,
             }
             return state;
         case SHOW_LESS:
-            if (state.interval[1] - state.interval[0] > 15) return {
-                ...state,
-                elementsOnPage: state.elementsOnPage - 15,
-                // interval: ,
-            }
+            if (state.intervalActive[1] - state.intervalActive[0]
+                > state.elementsOnPage) return {
+                    ...state,
+                    intervalActive: [
+                        state.intervalActive[0],
+                        state.intervalActive[1] - state.elementsOnPage
+                    ],
+                    elementsOnPageActive:
+                        state.elementsOnPageActive - state.elementsOnPage,
+                }
             return state;
         default:
             return state;

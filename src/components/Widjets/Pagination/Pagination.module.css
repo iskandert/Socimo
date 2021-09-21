@@ -68,9 +68,9 @@
     fill: #088dcd;
     transition: inherit;
 }
-.arrows svg {
-    transform: rotate(90deg);
-}
-.arrows:first-child svg {
+.prev svg {
     transform: rotate(-90deg);
+}
+.next svg {
+    transform: rotate(90deg);
 }

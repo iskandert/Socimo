@@ -6,8 +6,11 @@ import Pagination from '../../Widjets/Pagination/Pagination';
 let mapStateToProps = (state, props) => {
     // console.log(state.groupsPage.interval);
     return {
-        interval: [...state.groupsPage.interval],
         count: state.groupsPage.groupsData.length,
+        // interval: [...state.groupsPage.interval],
+        intervalActive: [...state.groupsPage.intervalActive],
+        elementsOnPage: state.groupsPage.elementsOnPage,
+        // elementsOnPageActive: state.groupsPage.elementsOnPageActive,
     }
 }
 
